@@ -25,25 +25,30 @@ df_hour['weathersit'] = df_hour['weathersit'].map(weather_mapping)
 st.title('Bike Sharing Data Visualizations')
 
 # Membuat pesan singkat
-st.write("""Tugas Akhir dari Dicoding ini memvisualisasikan data peminjaman sepeda menggunakan dataset **Bike Sharing**.""")
-
+st.write("""
+Tugas Akhir dari Dicoding ini memvisualisasikan data peminjaman sepeda 
+menggunakan dataset **Bike Sharing**.
+""")
 
 # Menampilkan Visualisasi Sepeda Berdasarkan Jam dan Musim
+st.subheader('Penggunaan Sepeda Berdasarkan Jam dan Musim')
 plt.figure(figsize=(12,6))
-sns.lineplot(x='hour', y='cnt', hue='season', data=df_hour)
+sns.lineplot(x='hr', y='cnt', hue='season', data=df_hour)
 plt.title('Penggunaan Sepeda Berdasarkan Jam dan Musim')
 plt.xlabel('Jam')
 plt.ylabel('Jumlah Peminjaman Sepeda (cnt)')
-plt.show()
+st.pyplot(plt)
+plt.close()
 
-
-# Menampilkan Visualisasi Peminjaman sepeda berdasarkan total peminjaman dari waktu ke waktu
+# Menampilkan Visualisasi Peminjaman Sepeda Berdasarkan Total Peminjaman dari Waktu ke Waktu
+st.subheader('Penggunaan Sepeda Sepanjang Waktu')
 plt.figure(figsize=(14, 6))
 sns.lineplot(data=df_day, x='dteday', y='cnt')
 plt.title('Penggunaan Sepeda Sepanjang Waktu')
 plt.xlabel('Tahun')
 plt.ylabel('Total Rental Sepeda')
-plt.show()
+st.pyplot(plt)
+plt.close()
 
 # Menampilkan Visualisasi Sepeda Berdasarkan Cuaca
 st.subheader('Penggunaan Sepeda Berdasarkan Cuaca')
@@ -56,4 +61,4 @@ plt.xlabel('Situasi Cuaca', fontsize=12)
 plt.ylabel('Jumlah Peminjaman Sepeda (cnt/1000)', fontsize=12)
 plt.grid(True, which='both', linestyle='--', linewidth=0.5)
 st.pyplot(plt)
-plt.close()  
+plt.close()
