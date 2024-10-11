@@ -32,7 +32,7 @@ menggunakan dataset **Bike Sharing**.
 
 # Menampilkan Visualisasi Peminjaman Sepeda Berdasarkan Hari dalam Seminggu
 st.subheader('Penggunaan Sepeda Berdasarkan Hari dalam Seminggu')
-df_hour['weekday'] = pd.to_datetime(df_hour['dteday']).dt.day_name()  # Mengambil nama hari
+df_hour['weekday'] = pd.to_datetime(df_hour['dteday']).dt.day_name()  
 weekday_counts = df_hour.groupby('weekday')['cnt'].sum().reindex(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
 plt.figure(figsize=(12,6))
 sns.barplot(x=weekday_counts.index, y=weekday_counts.values, palette='Set3')
@@ -45,15 +45,13 @@ plt.close()
 
 # Menampilkan Visualisasi Peminjaman Sepeda Berdasarkan Total Peminjaman dari Waktu ke Waktu
 st.subheader('Penggunaan Sepeda Sepanjang Waktu')
-# Mengubah kolom dteday menjadi tipe datetime
 df_day['dteday'] = pd.to_datetime(df_day['dteday'])
 plt.figure(figsize=(14, 6))
 sns.lineplot(data=df_day, x='dteday', y='cnt')
 plt.title('Penggunaan Sepeda Sepanjang Waktu')
 plt.xlabel('Tahun')
 plt.ylabel('Total Rental Sepeda')
-# Menampilkan tahun pada sumbu x
-plt.xticks(rotation=45)  # Memutar label tahun untuk keterbacaan
+plt.xticks(rotation=45) 
 st.pyplot(plt)
 plt.close()
 
