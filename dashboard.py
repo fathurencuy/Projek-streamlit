@@ -30,15 +30,17 @@ Tugas Akhir dari Dicoding ini memvisualisasikan data peminjaman sepeda
 menggunakan dataset **Bike Sharing**.
 """)
 
-# Menampilkan Visualisasi Sepeda Berdasarkan Jam dan Musim
-st.subheader('Penggunaan Sepeda Berdasarkan Jam dan Musim')
-plt.figure(figsize=(12,6))
-sns.lineplot(x='hr', y='cnt', hue='season', data=df_hour)
-plt.title('Penggunaan Sepeda Berdasarkan Jam dan Musim')
-plt.xlabel('Jam')
+# Menampilkan Visualisasi Peminjaman Sepeda Berdasarkan Status Hari Kerja
+st.subheader('Penggunaan Sepeda Berdasarkan Status Hari Kerja')
+workingday_counts = df_hour.groupby('workingday')['cnt'].sum()
+plt.figure(figsize=(8,5))
+sns.barplot(x=workingday_counts.index, y=workingday_counts.values, palette='Set2')
+plt.title('Jumlah Peminjaman Sepeda Berdasarkan Hari Kerja (1 = Hari Kerja, 0 = Hari Libur)')
+plt.xlabel('Status Hari Kerja')
 plt.ylabel('Jumlah Peminjaman Sepeda (cnt)')
 st.pyplot(plt)
 plt.close()
+
 
 # Menampilkan Visualisasi Peminjaman Sepeda Berdasarkan Total Peminjaman dari Waktu ke Waktu
 st.subheader('Penggunaan Sepeda Sepanjang Waktu')
