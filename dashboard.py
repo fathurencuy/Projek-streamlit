@@ -32,7 +32,7 @@ menggunakan dataset **Bike Sharing**.
 
 # Menampilkan Visualisasi Sepeda Berdasarkan Jam dan Musim
 st.subheader('Penggunaan Sepeda Berdasarkan Jam dan Musim')
-plt.figure(figsize=(14,6))
+plt.figure(figsize=(12,6))
 sns.lineplot(x='hr', y='cnt', hue='season', data=df_hour)
 plt.title('Penggunaan Sepeda Berdasarkan Jam dan Musim')
 plt.xlabel('Jam')
