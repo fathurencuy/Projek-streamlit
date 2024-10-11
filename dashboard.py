@@ -32,7 +32,7 @@ menggunakan dataset **Bike Sharing**.
 
 # Menampilkan Visualisasi Sepeda Berdasarkan Jam dan Musim
 st.subheader('Penggunaan Sepeda Berdasarkan Jam dan Musim')
-plt.figure(figsize=(12,6))
+plt.figure(figsize=(14,6))
 sns.lineplot(x='hr', y='cnt', hue='season', data=df_hour)
 plt.title('Penggunaan Sepeda Berdasarkan Jam dan Musim')
 plt.xlabel('Jam')
@@ -54,7 +54,7 @@ plt.close()
 st.subheader('Penggunaan Sepeda Berdasarkan Cuaca')
 weather_counts = df_day.groupby('weathersit')['cnt'].sum().reset_index()
 weather_counts['cnt'] = weather_counts['cnt'] / 1000
-plt.figure(figsize=(14,7))
+plt.figure(figsize=(14,6))
 sns.barplot(x='weathersit', y='cnt', data=weather_counts, palette='Set2')
 plt.title('Penggunaan Sepeda Berdasarkan Cuaca', fontsize=16, weight='bold')
 plt.xlabel('Situasi Cuaca', fontsize=12)
