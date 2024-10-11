@@ -45,13 +45,18 @@ plt.close()
 
 # Menampilkan Visualisasi Peminjaman Sepeda Berdasarkan Total Peminjaman dari Waktu ke Waktu
 st.subheader('Penggunaan Sepeda Sepanjang Waktu')
+# Mengubah kolom dteday menjadi tipe datetime
+df_day['dteday'] = pd.to_datetime(df_day['dteday'])
 plt.figure(figsize=(14, 6))
 sns.lineplot(data=df_day, x='dteday', y='cnt')
 plt.title('Penggunaan Sepeda Sepanjang Waktu')
 plt.xlabel('Tahun')
 plt.ylabel('Total Rental Sepeda')
+# Menampilkan tahun pada sumbu x
+plt.xticks(rotation=45)  # Memutar label tahun untuk keterbacaan
 st.pyplot(plt)
 plt.close()
+
 
 # Menampilkan Visualisasi Sepeda Berdasarkan Cuaca
 st.subheader('Penggunaan Sepeda Berdasarkan Cuaca')
