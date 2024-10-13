@@ -6,7 +6,7 @@ mkdir Projek_Dicoding
 cd Projek_Dicoding
 pipenv install
 pipenv shell
-pip nstall numpy pandas scipy matplotlib seaborn jupyter streamlit babel 
+pip install numpy pandas scipy matplotlib seaborn jupyter streamlit babel 
 ```
 
 ## Run steamlit app
